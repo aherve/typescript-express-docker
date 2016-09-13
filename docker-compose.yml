@@ -3,15 +3,20 @@ api:
   volumes:
     - .:/app
     - /app/node_modules
-    - /app/typings
   ports:
     - "0.0.0.0:9000:9000"
   command: ["nodemon", "./dist/app.js"]
 
-tsc:
+transpiler:
   build: .
   volumes:
     - .:/app
     - /app/node_modules
-    - /app/typings
   command: ["tsc", "-w"]
+
+linter:
+  build: .
+  volumes:
+    - .:/app
+    - /app/node_modules
+  command: nodemon --exec "find . -path ./typings -prune -o -path ./node_modules -prune -o -path ./dist -prune -o -name '*.ts' -print | xargs tslint"

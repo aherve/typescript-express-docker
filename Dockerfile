@@ -5,7 +5,7 @@ MAINTAINER Aurélien Hervé <mail@aurelien-herve.com>
 RUN mkdir /app
 WORKDIR /app
 
-RUN npm install -g nodemon tsc typescript typings
+RUN npm install -g nodemon tsc typescript typings tslint
 
 ADD ./package.json .
 RUN npm install

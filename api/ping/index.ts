@@ -1,9 +1,8 @@
-import {Router} from 'express'
 import * as controller from './ping.controller'
+import {Router} from 'express'
 
-const router = new Router()
+const router = Router()
 
-console.log('ping = ', controller.ping)
 router.get('/', controller.ping)
 
 export default router

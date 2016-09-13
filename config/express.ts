@@ -4,13 +4,11 @@
 
 'use strict';
 
-import * as express        from 'express'
-import * as compression    from 'compression'
-import * as bodyParser     from 'body-parser'
+import * as bodyParser from 'body-parser'
+import * as compression from 'compression'
 import * as methodOverride from 'method-override'
 
-export default function(app) {  /* jshint maxstatements: false */
-  var env = app.get('env');
+export default (app) => {
 
   app.use(compression());
   app.use(bodyParser.urlencoded({ extended: false }));

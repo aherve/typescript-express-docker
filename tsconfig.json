@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
+    "target": "es6",
     "module": "commonjs",
     "sourceMap": true,
-    //"noImplicitAny": true,
+    // "noImplicitAny": true,
     "removeComments": true,
     "outDir": "./dist/",
     "sourceMap": true,
