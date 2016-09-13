@@ -1,0 +1,17 @@
+api:
+  build: .
+  volumes:
+    - .:/app
+    - /app/node_modules
+    - /app/typings
+  ports:
+    - "0.0.0.0:9000:9000"
+  command: ["nodemon", "./dist/app.js"]
+
+tsc:
+  build: .
+  volumes:
+    - .:/app
+    - /app/node_modules
+    - /app/typings
+  command: ["tsc", "-w"]

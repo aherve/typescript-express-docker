@@ -1,0 +1,14 @@
+{
+  "name": "type-express",
+  "globalDependencies": {
+    "body-parser": "github:DefinitelyTyped/DefinitelyTyped/body-parser/body-parser.d.ts#fc341765ebbb04b7109981a25dced01f488f4d94",
+    "compression": "registry:dt/compression#0.0.0+20160501162003",
+    "errorhandler": "github:DefinitelyTyped/DefinitelyTyped/errorhandler/errorhandler.d.ts#fc341765ebbb04b7109981a25dced01f488f4d94",
+    "express": "github:DefinitelyTyped/DefinitelyTyped/express/express.d.ts#fc341765ebbb04b7109981a25dced01f488f4d94",
+    "method-override": "github:DefinitelyTyped/DefinitelyTyped/method-override/method-override.d.ts#fc341765ebbb04b7109981a25dced01f488f4d94",
+    "mime": "github:DefinitelyTyped/DefinitelyTyped/mime/mime.d.ts#fc341765ebbb04b7109981a25dced01f488f4d94",
+    "mongodb": "github:DefinitelyTyped/DefinitelyTyped/mongodb/mongodb.d.ts#fc341765ebbb04b7109981a25dced01f488f4d94",
+    "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#fc341765ebbb04b7109981a25dced01f488f4d94",
+    "serve-static": "github:DefinitelyTyped/DefinitelyTyped/serve-static/serve-static.d.ts#fc341765ebbb04b7109981a25dced01f488f4d94"
+  }
+}

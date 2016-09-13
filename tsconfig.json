@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "sourceMap": true,
+    //"noImplicitAny": true,
+    "removeComments": true,
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "pretty": true
+  },
+  "exclude": [
+    "node_modules",
+    "dist/node_modules"
+  ]
+}

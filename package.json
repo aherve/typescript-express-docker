@@ -1,0 +1,29 @@
+{
+  "name": "type-express",
+  "version": "1.0.0",
+  "description": "Dockerized node-express app written in typescript",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "compression": "^1.6.2",
+    "express": "^4.14.0",
+    "http": "0.0.0",
+    "method-override": "^2.3.6"
+  },
+  "devDependencies": {
+    "tsc": "^1.20150623.0",
+    "tslint": "^3.15.1",
+    "typescript": "^1.8.10"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "typescript",
+    "node",
+    "express",
+    "docker"
+  ],
+  "author": "Aurélien Hervé",
+  "license": "ISC"
+}
