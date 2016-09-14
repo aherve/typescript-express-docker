@@ -1,0 +1,5 @@
+{
+  "mongo": {
+    "uri": 'mongodb://mongo/hunteedv3-dev'
+  }
+}
