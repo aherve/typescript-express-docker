@@ -8,7 +8,6 @@ api:
   ports:
     - "0.0.0.0:9000:9000"
   command: nodemon --delay 500ms ./dist/app.js
-  #command: ["nodemon", "./dist/app.js"]
 
 transpiler:
   build: .
