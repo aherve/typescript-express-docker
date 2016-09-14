@@ -36,11 +36,36 @@ After adding new npm or typings package, you will have to rebuild your images as
 ### Can I deploy ?
 I'v not yet automated the deployment. For now you can do whatever you want with the `/dist` folder, that contains the transplied `js` code.
 
+## Typescript validations are awesome
+
+Try introducing a typo:
+![typo](https://cloud.githubusercontent.com/assets/2798256/18518627/0efce218-7aa1-11e6-89a2-74455eede178.png)
+
+![selection_063](https://cloud.githubusercontent.com/assets/2798256/18518718/6d7694ec-7aa1-11e6-83d2-0938e25f5f45.png)
+
 ## Await
 
 Typescript [now support async/await](https://blogs.msdn.microsoft.com/typescript/2015/11/03/what-about-asyncawait/) and this build let you take advantage of it. See `/api/views` for two implementations of a simple mongoose request. One uses await, whereas the other uses promises.
 
-In both cases the code is easy to read, and takes advantage of typescript validations.
+The code now looks like as it where synchronous, but does not block the thread:
+
+```
+export async function awaitIndex (req: express.Request, res: express.Response) {
+  try {
+    const lastVisit: IView = await View.create({
+      visitedAt: new Date(),
+      visitedBy: getIp(req),
+    })
+
+    const count: number = await View.count({})
+    res.send({ count, lastVisit: lastVisit.public })
+
+  } catch (error) {
+    res.status(500).send({error: error.toString()})
+  }
+}
+```
+
 
 ## TODO/ coming soon
  - Implementation of unit-tests
