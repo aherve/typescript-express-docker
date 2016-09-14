@@ -41,3 +41,7 @@ I'v not yet automated the deployment. For now you can do whatever you want with 
 Typescript [now support async/await](https://blogs.msdn.microsoft.com/typescript/2015/11/03/what-about-asyncawait/) and this build let you take advantage of it. See `/api/views` for two implementations of a simple mongoose request. One uses await, whereas the other uses promises.
 
 In both cases the code is easy to read, and takes advantage of typescript validations.
+
+## TODO/ coming soon
+ - Implementation of unit-tests
+ - automated build of a production-ready docker
