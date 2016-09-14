@@ -7,7 +7,7 @@ This project is a fully working bootstrap for developping an express-mongoose ap
 
  - the ONLY install you need is docker. Don't worry about installing mongo, npm or whatever else. Docker-compose takes all the leverage for you (see [Installation](#installation)).
  - Typescript is awesome. your code is checked against a LOT of possible mistakes. Try inserting some typos such as `ssend(...)` instead of `send()` and see the console warn you about it.
- - Possible usage of `await/async` and/or Promise-style code => no Callback Hell
+ - [Possible usage of `await/async`](#await) and/or Promise-style code => no Callback Hell
  - Linters are already installed. Keep your code clean.
 
 ## Installation
