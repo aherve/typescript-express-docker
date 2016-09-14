@@ -67,6 +67,9 @@ export async function awaitIndex (req: express.Request, res: express.Response) {
 }
 ```
 
+## Continuous Testing
+
+The config provided in `codeship-services.yml` and `codeship-steps.yml` will trigger a build at each code commit.
 
 ## TODO/ coming soon
  - Implementation of unit-tests
