@@ -14,7 +14,7 @@ This project is a fully working bootstrap for developping an express-mongoose ap
 
  - clone the repo
  - run `docker-compose up`
- - browse `http://localhost:3000/api/ping`
+ - browse `http://localhost:3000/api/ping`, `http://localhost:3000/api/views/promise`, `http://localhost:3000/api/views/await`
  - profit
 
 ## Useful knowledge
