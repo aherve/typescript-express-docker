@@ -1,0 +1,13 @@
+transpiler:
+  build: .
+  volumes:
+    - ".:/app"
+    - "/app/node_modules"
+    - "/app/typings"
+
+linter:
+  build: .
+  volumes:
+    - ".:/app"
+    - "/app/node_modules"
+    - "/app/typings"

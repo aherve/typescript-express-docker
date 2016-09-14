@@ -6,9 +6,10 @@ This project is a fully working bootstrap for developping an express-mongoose ap
 ## Why is it awesome ?
 
  - the ONLY install you need is docker. Don't worry about installing mongo, npm or whatever else. Docker-compose takes all the leverage for you (see [Installation](#installation)).
- - Typescript is awesome. your code is checked against a LOT of possible mistakes. Try inserting some typos such as `ssend(...)` instead of `send()` and see the console warn you about it.
+ - Typescript is awesome. your code is checked against a LOT of possible mistakes. Try inserting some typos such as `ssend(...)` instead of `send()` and [see the console warn you about it](#typos).
  - [Possible usage of `await/async`](#await) and/or Promise-style code => no Callback Hell
  - Linters are already installed. Keep your code clean.
+ - Automated testing by codeship on code commit. They run the same container as you do : if it works at home, it works on CI-servers.
 
 ## Installation
 
@@ -36,9 +37,9 @@ After adding new npm or typings package, you will have to rebuild your images as
 ### Can I deploy ?
 I'v not yet automated the deployment. For now you can do whatever you want with the `/dist` folder, that contains the transplied `js` code.
 
-## Typescript validations are awesome
+## Typos
+Typescript validations are awesome:
 
-Try introducing a typo:
 ![typo](https://cloud.githubusercontent.com/assets/2798256/18518627/0efce218-7aa1-11e6-89a2-74455eede178.png)
 
 ![selection_063](https://cloud.githubusercontent.com/assets/2798256/18518718/6d7694ec-7aa1-11e6-83d2-0938e25f5f45.png)

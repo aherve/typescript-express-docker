@@ -1,0 +1,12 @@
+- type: 'parallel'
+  steps:
+    - type: 'parallel'
+      name: 'Transpile'
+      service: 'transpiler'
+      steps:
+        - command: "tsc"
+    - type: parallel
+      name: 'Lint'
+      service: 'linter'
+      steps:
+        - command: sh -c "find . -path ./typings -prune -o -path ./node_modules -prune -o -path ./dist -prune -o -name '*.ts' -print | xargs tslint"
