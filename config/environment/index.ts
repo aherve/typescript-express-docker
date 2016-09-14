@@ -1,3 +1,6 @@
+import * as _ from 'lodash'
+import * as mongoose from 'mongoose'
+
 import developmentConfig from './development'
 import productionConfig from './production'
 import testConfig from './test'
@@ -7,6 +10,10 @@ export interface IConfig {
   appName?: string
   env?: string
   ip?: string
+  mongo?: {
+    options?: mongoose.ConnectionOptions
+    uri?: string
+  }
   port?: number
   secrets?: {
     session?: string
@@ -18,6 +25,14 @@ export interface IConfig {
 const commonConfig = {
   appName: process.env.APP_NAME || `hunteed-${process.env.NODE_ENV}`,
   env: process.env.NODE_ENV,
+
+  mongo: {
+    options: {
+      db: {
+        safe: true
+      }
+    }
+  },
 
   // Server port
   port: process.env.PORT || 9000,
@@ -31,14 +46,14 @@ const commonConfig = {
 
 // Export the config object based on the NODE_ENV
 // ==============================================
-let config: IConfig
+const config: IConfig = commonConfig
 
 if (commonConfig.env === 'development') {
-  config = Object.assign({}, commonConfig, developmentConfig )
+  _.merge(config, developmentConfig)
 } else if (commonConfig.env === 'test') {
-  config = Object.assign({}, commonConfig, testConfig )
+  _.merge(config, testConfig)
 } else if (commonConfig.env === 'production') {
-  config = Object.assign({}, commonConfig, productionConfig )
+  _.merge(config, productionConfig)
 } else {
   throw new Error('Please set an environment')
 }

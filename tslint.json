@@ -3,6 +3,7 @@
   "extends": "tslint:latest",
   "rulesDirectory": [],
   "rules": {
+    "only-arrow-functions": false,
     "no-console": true,
     "class-name": true,
     "curly": false,

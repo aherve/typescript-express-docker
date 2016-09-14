@@ -8,7 +8,9 @@
     "compression": "^1.6.2",
     "express": "^4.14.0",
     "http": "0.0.0",
-    "method-override": "^2.3.6"
+    "lodash": "^4.15.0",
+    "method-override": "^2.3.6",
+    "mongoose": "^4.6.0"
   },
   "devDependencies": {
     "tsc": "^1.20150623.0",

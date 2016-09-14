@@ -6,10 +6,12 @@
     "errorhandler": "github:DefinitelyTyped/DefinitelyTyped/errorhandler/errorhandler.d.ts#fc341765ebbb04b7109981a25dced01f488f4d94",
     "express": "registry:dt/express#4.0.0+20160708185218",
     "express-serve-static-core": "registry:dt/express-serve-static-core#4.0.0+20160829034835",
+    "lodash": "registry:dt/lodash#4.14.0+20160830145422",
     "method-override": "github:DefinitelyTyped/DefinitelyTyped/method-override/method-override.d.ts#fc341765ebbb04b7109981a25dced01f488f4d94",
     "mime": "github:DefinitelyTyped/DefinitelyTyped/mime/mime.d.ts#fc341765ebbb04b7109981a25dced01f488f4d94",
-    "mongodb": "github:DefinitelyTyped/DefinitelyTyped/mongodb/mongodb.d.ts#fc341765ebbb04b7109981a25dced01f488f4d94",
-    "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#fc341765ebbb04b7109981a25dced01f488f4d94",
+    "mongodb": "registry:dt/mongodb#2.1.0+20160602142941",
+    "mongoose": "registry:dt/mongoose#4.5.9+20160826204928",
+    "node": "registry:dt/node#6.0.0+20160909174046",
     "serve-static": "github:DefinitelyTyped/DefinitelyTyped/serve-static/serve-static.d.ts#fc341765ebbb04b7109981a25dced01f488f4d94"
   }
 }

@@ -1,10 +1,13 @@
 api:
   build: .
+  links:
+    - 'mongo:mongo'
   environment:
     NODE_ENV: 'development'
   volumes:
     - .:/app
     - /app/node_modules
+    - /app/typings
   ports:
     - "0.0.0.0:9000:9000"
   command: nodemon --delay 500ms ./dist/app.js
@@ -14,6 +17,7 @@ transpiler:
   volumes:
     - .:/app
     - /app/node_modules
+    - /app/typings
   command: ["tsc", "-w"]
 
 linter:
@@ -21,4 +25,11 @@ linter:
   volumes:
     - .:/app
     - /app/node_modules
+    - /app/typings
   command: nodemon --delay 500ms --exec "find . -path ./typings -prune -o -path ./node_modules -prune -o -path ./dist -prune -o -name '*.ts' -print | xargs tslint"
+
+mongo:
+  image: mvertes/alpine-mongo:3.2.1
+  ports:
+    - "27017"
+  command: ["mongod"]
