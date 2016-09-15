@@ -11,6 +11,7 @@ This project is a fully working bootstrap for developping an express-mongoose ap
  - Typescript is awesome. your code is checked against a LOT of possible mistakes. Try inserting some typos such as `ssend(...)` instead of `send()` and [see the console warn you about it](#typos).
  - [Possible usage of `await/async`](#await) and/or Promise-style code => no Callback Hell
  - Linters are already installed. Keep your code clean.
+ - Automated mocha unit testing. Mocha tests are written in ts, but run on the transpiled javascript code. So the actual transpiled application is properly tested.
  - Automated testing by codeship on code commit. They run the same container as you do : if it works at home, it works on CI-servers.
 
 ## Installation
@@ -67,6 +68,17 @@ export async function awaitIndex (req: express.Request, res: express.Response) {
     res.status(500).send({error: error.toString()})
   }
 }
+```
+
+Even the tests are written using ES7-like syntax:
+
+```
+ it('returns a new view', async function () {
+    const t = await request.get('/api/views/await')
+    expect(t.status).to.equal(200)
+    expect(t.body).to.have.property('lastVisit')
+    expect(t.body).to.have.property('count', 1)
+  })
 ```
 
 ## Continuous Testing
