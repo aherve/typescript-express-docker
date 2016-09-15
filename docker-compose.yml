@@ -42,6 +42,6 @@ mocha:
     - /app/typings
   links:
     - 'mongo:mongo'
-  command: nodemon --delay 500ms --exec 'mocha --recursive --bail' ./dist
+  command: nodemon --delay 500ms --exec 'mocha --recursive --bail --colors' ./dist
   environment:
     NODE_ENV: 'test'

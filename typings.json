@@ -1,6 +1,7 @@
 {
   "name": "type-express",
   "globalDependencies": {
+    "bluebird": "registry:dt/bluebird#3.0.0+20160907110115",
     "body-parser": "github:DefinitelyTyped/DefinitelyTyped/body-parser/body-parser.d.ts#fc341765ebbb04b7109981a25dced01f488f4d94",
     "chai": "registry:dt/chai#3.4.0+20160601211834",
     "compression": "registry:dt/compression#0.0.0+20160501162003",
@@ -15,6 +16,8 @@
     "mongoose": "registry:dt/mongoose#4.5.9+20160826204928",
     "node": "registry:dt/node#6.0.0+20160909174046",
     "serve-static": "github:DefinitelyTyped/DefinitelyTyped/serve-static/serve-static.d.ts#fc341765ebbb04b7109981a25dced01f488f4d94",
+    "superagent": "registry:dt/superagent#2.0.0+20160906143408",
+    "supertest": "registry:dt/supertest#1.1.0+20160724070541",
     "supertest-as-promised": "registry:dt/supertest-as-promised#2.0.2+20160802164024"
   }
 }

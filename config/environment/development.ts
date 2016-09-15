@@ -7,6 +7,6 @@ export default {
     'http://localhost:3000',
   ],
   mongo: {
-    uri: 'mongodb://mongo/typeExpress'
+    uri: 'mongodb://mongo/typeExpress-dev'
   },
 };

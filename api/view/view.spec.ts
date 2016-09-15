@@ -1,15 +1,15 @@
-import * as mongoose from 'mongoose'
+import {expect} from 'chai'
 import * as supertest from 'supertest-as-promised'
+
 import app from '../../app'
 import {View} from './view.model'
-import {expect} from 'chai'
 
 const request = supertest(app)
 
 describe ('GET /api/views/async', function () {
 
-  before(function () {
-    return mongoose.connection.collections.views.remove()
+  before(async function () {
+    return await View.remove({})
   })
 
   it('returns a new view', async function () {
