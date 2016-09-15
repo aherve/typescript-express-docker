@@ -86,5 +86,4 @@ Even the tests are written using ES7-like syntax:
 The config provided in `codeship-services.yml` and `codeship-steps.yml` will trigger a build at each code commit.
 
 ## TODO/ coming soon
- - Implementation of unit-tests
  - automated build of a production-ready docker
