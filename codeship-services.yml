@@ -11,3 +11,20 @@ linter:
     - ".:/app"
     - "/app/node_modules"
     - "/app/typings"
+
+mocha:
+  build: .
+  volumes:
+    - ".:/app"
+    - "/app/node_modules"
+    - "/app/typings"
+  links:
+    - 'mongo:mongo'
+  environment:
+    NODE_ENV: 'test'
+
+mongo:
+  image: mvertes/alpine-mongo:3.2.1
+  ports:
+    - "27017"
+  command: "mongod"
