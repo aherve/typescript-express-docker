@@ -33,3 +33,15 @@ mongo:
   ports:
     - "27017"
   command: ["mongod"]
+
+mocha:
+  build: .
+  volumes:
+    - .:/app
+    - /app/node_modules
+    - /app/typings
+  links:
+    - 'mongo:mongo'
+  command: nodemon --delay 500ms --exec 'mocha --recursive --bail' ./dist
+  environment:
+    NODE_ENV: 'test'

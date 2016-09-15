@@ -13,6 +13,9 @@
     "mongoose": "^4.6.0"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "supertest": "^2.0.0",
+    "supertest-as-promised": "^4.0.0",
     "tsc": "^1.20150623.0",
     "tslint": "^3.15.1",
     "typescript": "^1.8.10"
