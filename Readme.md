@@ -53,7 +53,7 @@ Typescript [now support async/await](https://blogs.msdn.microsoft.com/typescript
 
 The code now looks like as it where synchronous, but does not block the thread:
 
-```
+```typescript
 export async function awaitIndex (req: express.Request, res: express.Response) {
   try {
     const lastVisit: IView = await View.create({
@@ -72,7 +72,7 @@ export async function awaitIndex (req: express.Request, res: express.Response) {
 
 Even the tests are written using ES7-like syntax:
 
-```
+```typescript
  it('returns a new view', async function () {
     const t = await request.get('/api/views/await')
     expect(t.status).to.equal(200)
