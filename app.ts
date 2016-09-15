@@ -13,6 +13,7 @@ import routesConfig from './routes'
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 // Connect to database
+mongoose.Promise = global.Promise
 mongoose.connect(config.mongo.uri, config.mongo.options);
 
 // Setup server
