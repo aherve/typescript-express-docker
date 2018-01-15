@@ -1,6 +1,6 @@
 #Typescript + Docker + Express + Mongoose = Awesome
 
-[ ![Codeship Status for aherve/typescript-express-docker](https://app.codeship.com/projects/7fcdf0c0-5cc2-0134-311d-066f4b004e09/status?branch=master) ](https://app.codeship.com/projects/173801)
+[ ![Codeship Status for aherve/typescript-express-docker](https://app.codeship.com/projects/786513d0-dc12-0135-eb8f-32499970d10e/status?branch=master) ](https://app.codeship.com/projects/265420)
 
 ## About this
 This project is a fully working bootstrap for developping an express-mongoose api with typescript.
