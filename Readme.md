@@ -1,4 +1,4 @@
-#Typescript + Docker + Express + Mongoose = Awesome
+# Typescript + Docker + Express + Mongoose = Awesome
 
 [ ![Codeship Status for aherve/typescript-express-docker](https://app.codeship.com/projects/786513d0-dc12-0135-eb8f-32499970d10e/status?branch=master) ](https://app.codeship.com/projects/265420)
 
