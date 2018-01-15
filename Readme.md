@@ -34,9 +34,6 @@ After adding new npm or typings package, you will have to rebuild your images as
 ### Add new npm package:
  - `docker-compose run api npm install <wathever> --save`
 
-### Add new typings:
- - `docker-compose run api typings install <wathever>`
-
 ### Can I deploy ?
 I'v not yet automated the deployment. For now you can do whatever you want with the `/dist` folder, that contains the transplied `js` code.
 

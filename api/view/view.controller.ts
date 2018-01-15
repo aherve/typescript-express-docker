@@ -32,5 +32,5 @@ export async function promiseIndex (req: express.Request, res: express.Response)
 }
 
 function getIp (req: express.Request): string {
-  return req.headers['x-forwarded-for'] || req.connection.remoteAddress
+  return (req.headers['x-forwarded-for'] || req.connection.remoteAddress) as string
 }

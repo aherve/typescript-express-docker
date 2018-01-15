@@ -5,10 +5,8 @@ MAINTAINER Aurélien Hervé <mail@aurelien-herve.com>
 RUN mkdir /app
 WORKDIR /app
 
-RUN npm install -g nodemon tsc typescript typings tslint mocha
+RUN npm install -g nodemon typescript tslint mocha yarn
 
 ADD ./package.json .
-RUN npm install
-
-ADD ./typings.json .
-RUN typings install
+ADD ./yarn.lock .
+RUN yarn

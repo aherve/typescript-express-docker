@@ -7,17 +7,15 @@ api:
   volumes:
     - .:/app
     - /app/node_modules
-    - /app/typings
   ports:
     - "0.0.0.0:9000:9000"
-  command: nodemon --delay 500ms ./dist/app.js
+  command: sh -c "mkdir -p dist && touch ./dist/app.js && nodemon --delay 500ms ./dist/app.js"
 
 transpiler:
   build: .
   volumes:
     - .:/app
     - /app/node_modules
-    - /app/typings
   command: ["tsc", "-w"]
 
 linter:
@@ -25,8 +23,7 @@ linter:
   volumes:
     - .:/app
     - /app/node_modules
-    - /app/typings
-  command: nodemon --delay 500ms --exec "find . -path ./typings -prune -o -path ./node_modules -prune -o -path ./dist -prune -o -name '*.ts' -print | xargs tslint"
+  command: nodemon --delay 500ms --exec "find . -path ./ -prune -o -path ./node_modules -prune -o -path ./dist -prune -o -name '*.ts' -print | xargs tslint"
 
 mongo:
   image: mvertes/alpine-mongo:3.2.1
@@ -39,7 +36,6 @@ mocha:
   volumes:
     - .:/app
     - /app/node_modules
-    - /app/typings
   links:
     - 'mongo:mongo'
   command: nodemon --delay 500ms --exec 'mocha --recursive --bail --colors' ./dist
