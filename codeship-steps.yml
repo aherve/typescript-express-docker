@@ -11,9 +11,9 @@
           name: 'mocha'
           service: 'mocha'
           steps:
-            - command: "mocha --recursive --bail --colors ./dist"
+            - command: "mocha --recursive --bail --colors --exit ./dist"
     - type: 'serial'
       name: 'Lint'
       service: 'linter'
       steps:
-        - command: sh -c "find . -path ./typings -prune -o -path ./node_modules -prune -o -path ./dist -prune -o -name '*.ts' -print | xargs tslint"
+        - command: sh -c "find . -path ./ -prune -o -path ./node_modules -prune -o -path ./dist -prune -o -name '*.ts' -print | xargs tslint"

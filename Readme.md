@@ -1,6 +1,6 @@
 #Typescript + Docker + Express + Mongoose = Awesome
 
-![codeship](https://codeship.com/projects/7fcdf0c0-5cc2-0134-311d-066f4b004e09/status?branch=master)
+[ ![Codeship Status for aherve/typescript-express-docker](https://app.codeship.com/projects/786513d0-dc12-0135-eb8f-32499970d10e/status?branch=master) ](https://app.codeship.com/projects/265420)
 
 ## About this
 This project is a fully working bootstrap for developping an express-mongoose api with typescript.
@@ -33,9 +33,6 @@ After adding new npm or typings package, you will have to rebuild your images as
 
 ### Add new npm package:
  - `docker-compose run api npm install <wathever> --save`
-
-### Add new typings:
- - `docker-compose run api typings install <wathever>`
 
 ### Can I deploy ?
 I'v not yet automated the deployment. For now you can do whatever you want with the `/dist` folder, that contains the transplied `js` code.

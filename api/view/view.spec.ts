@@ -8,8 +8,8 @@ const request = supertest(app)
 
 describe ('GET /api/views/async', function () {
 
-  before(async function () {
-    return await View.remove({})
+  before(() => {
+    return View.remove({})
   })
 
   it('returns a new view', async function () {

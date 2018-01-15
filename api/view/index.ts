@@ -1,5 +1,5 @@
 import * as controller from './view.controller'
-import {Router} from 'express'
+import { Router } from 'express'
 
 const router = Router()
 
