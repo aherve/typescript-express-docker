@@ -28,9 +28,9 @@ const commonConfig = {
 
   mongo: {
     options: {
-      db: {
-        safe: true
-      }
+      poolSize: 20,
+      useCreateIndex: true,
+      useNewUrlParser: true,
     },
   },
 

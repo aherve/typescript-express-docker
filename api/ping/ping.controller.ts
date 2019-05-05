@@ -1,11 +1,34 @@
-import * as express from 'express'
+import { apiMethod, ApiError } from '../helpers';
 
-export async function ping (req: express.Request, res: express.Response) {
-  res.status(200).send({ping: 'pong'})
-  await delay(1000)
-  console.log('hello. I waited 1000 ms without blocking the thread')
-}
+export const ping = apiMethod<{ ping: string }>(async () => {
+  return {
+    data: { ping: 'pong' },
+    status: 200,
+  }
+})
 
-function delay (ms: number) {
-  return new Promise(resolve => setTimeout(resolve, ms))
+export const fail = apiMethod<{ message: string }>(async () => {
+
+  /*
+   * Safely throw exceptions and see them caught without breaking anything
+   * Here for instance, we are calling a fail dice, that will randomly fail
+   * failDice is here async for the sake of th example, but it does not have to
+   */
+  await failDice()
+
+  return {
+    data: {
+      message: 'Everything went fine !'
+    }
+  }
+})
+
+async function failDice() {
+  if (Math.random() > 0.5) {
+    throw <ApiError> {
+      name: 'BadRequestError',
+      message: 'Give me one more chance !',
+    }
+  }
+  return
 }
