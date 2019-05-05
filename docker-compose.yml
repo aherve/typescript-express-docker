@@ -9,7 +9,7 @@ api:
     - /app/node_modules
   ports:
     - "0.0.0.0:9000:9000"
-  command: sh -c "mkdir -p dist && touch ./dist/app.js && nodemon --delay 500ms ./dist/app.js"
+  command: sh -c "mkdir -p dist && touch ./dist/app.js && nodemon --delay 500ms --watch dist ./dist/app.js"
 
 transpiler:
   build: .
