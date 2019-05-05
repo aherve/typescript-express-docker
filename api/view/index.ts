@@ -3,7 +3,6 @@ import { Router } from 'express'
 
 const router = Router()
 
-router.get('/await', controller.awaitIndex)
-router.get('/promise', controller.promiseIndex)
+router.get('/visit', controller.visit)
 
 export default router

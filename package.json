@@ -4,13 +4,12 @@
   "description": "Dockerized node-express app written in typescript",
   "main": "app.js",
   "dependencies": {
-    "body-parser": "^1.15.2",
-    "compression": "^1.6.2",
-    "express": "^4.14.0",
-    "http": "0.0.0",
+    "body-parser": "^1.18.3",
+    "compression": "^1.7",
+    "express": "^4.16",
     "lodash": "^4.15.0",
     "method-override": "^2.3.6",
-    "mongoose": "^4.6.0"
+    "mongoose": "^5.2.5"
   },
   "devDependencies": {
     "@types/body-parser": "^1.16.8",
@@ -20,14 +19,14 @@
     "@types/lodash": "^4.14.92",
     "@types/method-override": "^0.0.31",
     "@types/mocha": "^2.2.46",
-    "@types/mongoose": "^4.7.32",
+    "@types/mongoose": "^5.2.2",
     "@types/supertest": "^2.0.4",
     "@types/supertest-as-promised": "^2.0.35",
-    "chai": "^4.1.2",
-    "supertest": "^2.0.0",
+    "chai": "^3.5.0",
+    "supertest": "^3.0.0",
     "supertest-as-promised": "^4.0.2",
-    "tsc": "^1.20150623.0",
     "tslint": "^5.16.0",
+    "tslint-microsoft-contrib": "^6.1.1",
     "typescript": "^3.4.5"
   },
   "scripts": {

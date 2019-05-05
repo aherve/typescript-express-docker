@@ -4,7 +4,7 @@
 // ==================================
 export default {
   allowedOrigins: [
-    'http://localhost:3000',
+    'http://localhost:9000',
   ],
   mongo: {
     uri: 'mongodb://mongo/typeExpress-dev'

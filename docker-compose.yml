@@ -26,7 +26,7 @@ linter:
   command: nodemon --delay 500ms --exec "find . -path ./ -prune -o -path ./node_modules -prune -o -path ./dist -prune -o -name '*.ts' -print | xargs tslint"
 
 mongo:
-  image: mvertes/alpine-mongo:3.2.1
+  image: mongo:3.6.6
   ports:
     - "27017"
   command: ["mongod"]
