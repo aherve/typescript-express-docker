@@ -1,4 +1,4 @@
-import { apiMethod, ApiError } from '../helpers';
+import { apiMethod, ApiError, ErrorName } from '../helpers';
 
 export const ping = apiMethod<{ ping: string }>(async () => {
   return {
@@ -26,7 +26,7 @@ export const fail = apiMethod<{ message: string }>(async () => {
 async function failDice() {
   if (Math.random() > 0.5) {
     throw <ApiError> {
-      name: 'BadRequestError',
+      name: ErrorName.BadRequestError,
       message: 'Give me one more chance !',
     }
   }

@@ -1,8 +1,19 @@
 import { Request, Response, RequestHandler } from 'express'
 
+export enum ErrorName {
+  'BadRequestError',
+  'Forbidden',
+  'LimitRateExceeded',
+  'MongoError',
+  'NotFound',
+  'Unauthorized',
+  'Unknown',
+  'ValidationError',
+}
+
 // Define a standard format for throwing exceptions
 export interface ApiError {
-  name: 'ValidationError' | 'Unauthorized' | 'Unknown' | 'BadRequestError' | 'NotFound' | 'Forbidden' | 'MongoError' | 'LimitRateExceeded'
+  name: ErrorName
   message: string
   code?: number
 }
@@ -36,24 +47,36 @@ export function apiMethod<T>(f: ApiMethodDefinition<T>): RequestHandler {
 /*
  * Provide a nice error code
  */
-export function handleError(res: Response, error: ApiError): void {
-  if ('name' in error && (error.name === 'ValidationError' || error.name === 'BadRequestError')) {
-    res.status(400).send({ error })
-  } else if ('name' in error && error.name === 'Unauthorized') {
-    res.status(401).send({ error })
-  } else if ('name' in error && error.name === 'Forbidden') {
-    res.status(403).send({ error })
-  } else if ('name' in error && error.name === 'NotFound') {
-    res.status(404).send({ error })
-  } else if ('name' in error && error.name === 'LimitRateExceeded') {
-    res.status(509).send({ error })
-  } else if ('name' in error && error.name === 'MongoError' && error.code === 11000) {
-    res.status(400).send({ name: 'Duplicate', message: 'DuplicateError' })
-  } else {
+export function handleError(res: Response, error: ApiError) {
+  if (!('name' in error)) {
     console.error(error)
-    res.status(500).send({ error })
+    return res.status(500).send({ error })
   }
-  return
+
+  switch (error.name) {
+    case ErrorName.ValidationError:
+    case ErrorName.BadRequestError:
+      return res.status(400).send({ error })
+    case ErrorName.Unauthorized:
+      return res.status(401).send({ error })
+    case ErrorName.Forbidden:
+      return res.status(403).send({ error })
+    case ErrorName.NotFound:
+      return res.status(404).send({ error })
+    case ErrorName.LimitRateExceeded:
+      return res.status(509).send({ error })
+    case ErrorName.MongoError:
+      return res.status(400).send({ error })
+    case ErrorName.Unknown:
+      return res.status(500).send({ error })
+    default:
+      assertUnreachable(error.name)
+      break
+  }
+}
+
+function assertUnreachable(_: never): never {
+  throw new Error('Did not expect to reach this code')
 }
 
 export function getIp(req: Request): string {
