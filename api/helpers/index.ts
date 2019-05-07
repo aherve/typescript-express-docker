@@ -14,7 +14,7 @@ export enum ErrorName {
 // Define a standard format for throwing exceptions
 export interface ApiError {
   name: ErrorName
-  message: string
+  message?: string
   code?: number
 }
 
@@ -50,7 +50,7 @@ export function getIp(req: Request): string {
 
 function handleError(res: Response, error: any): void {
   if (isApiError) {
-    return handleApiError(res, error)
+    handleApiError(res, error)
   } else {
     res.status(500).send({ error })
   }
@@ -60,6 +60,13 @@ function handleError(res: Response, error: any): void {
  * Provide a nice error code for proper ApiErrors
  */
 function handleApiError(res: Response, error: ApiError): void {
+
+  // error code can be overriden if necessary
+  if (error.code) {
+    res.status(error.code).send({ error })
+    return
+  }
+
   switch (error.name) {
     case ErrorName.ValidationError:
     case ErrorName.BadRequestError:
@@ -89,7 +96,10 @@ function handleApiError(res: Response, error: ApiError): void {
 }
 
 function isApiError(err: any): err is ApiError {
-  return 'name' in err && Object.keys(ErrorName).includes(err.name)
+  return typeof err === 'object' &&
+    'name' in err &&
+    Object.keys(ErrorName).includes(err.name) &&
+    (['undefined', 'number'].includes(typeof err.code))
 }
 
 function assertUnreachable(_: never): never {
