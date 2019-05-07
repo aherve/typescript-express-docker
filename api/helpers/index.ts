@@ -1,14 +1,14 @@
 import { Request, Response, RequestHandler } from 'express'
 
 export enum ErrorName {
-  'BadRequestError',
-  'Forbidden',
-  'LimitRateExceeded',
-  'MongoError',
-  'NotFound',
-  'Unauthorized',
-  'Unknown',
-  'ValidationError',
+  'BadRequestError' = 'BadRequestError',
+  'Forbidden' = 'Forbidden',
+  'LimitRateExceeded' = 'LimitRateExceeded',
+  'MongoError' = 'MongoError',
+  'NotFound' = 'NotFound',
+  'Unauthorized' = 'Unauthorized',
+  'Unknown' = 'Unknown',
+  'ValidationError' = 'ValidationError',
 }
 
 // Define a standard format for throwing exceptions
@@ -44,41 +44,54 @@ export function apiMethod<T>(f: ApiMethodDefinition<T>): RequestHandler {
   }
 }
 
-/*
- * Provide a nice error code
- */
-export function handleError(res: Response, error: ApiError) {
-  if (!('name' in error)) {
-    console.error(error)
-    return res.status(500).send({ error })
-  }
+export function getIp(req: Request): string {
+  return (req.headers['x-forwarded-for'] || req.connection.remoteAddress) as string
+}
 
+function handleError(res: Response, error: any): void {
+  if (isApiError) {
+    return handleApiError(res, error)
+  } else {
+    res.status(500).send({ error })
+  }
+}
+
+/*
+ * Provide a nice error code for proper ApiErrors
+ */
+function handleApiError(res: Response, error: ApiError): void {
   switch (error.name) {
     case ErrorName.ValidationError:
     case ErrorName.BadRequestError:
-      return res.status(400).send({ error })
+      res.status(400).send({ error })
+      break
     case ErrorName.Unauthorized:
-      return res.status(401).send({ error })
+      res.status(401).send({ error })
+      break
     case ErrorName.Forbidden:
-      return res.status(403).send({ error })
+      res.status(403).send({ error })
+      break
     case ErrorName.NotFound:
-      return res.status(404).send({ error })
+      res.status(404).send({ error })
+      break
     case ErrorName.LimitRateExceeded:
-      return res.status(509).send({ error })
+      res.status(509).send({ error })
+      break
     case ErrorName.MongoError:
-      return res.status(400).send({ error })
+      res.status(400).send({ error })
+      break
     case ErrorName.Unknown:
-      return res.status(500).send({ error })
+      res.status(500).send({ error })
+      break
     default:
       assertUnreachable(error.name)
-      break
   }
+}
+
+function isApiError(err: any): err is ApiError {
+  return 'name' in err && Object.keys(ErrorName).includes(err.name)
 }
 
 function assertUnreachable(_: never): never {
   throw new Error('Did not expect to reach this code')
-}
-
-export function getIp(req: Request): string {
-  return (req.headers['x-forwarded-for'] || req.connection.remoteAddress) as string
 }
